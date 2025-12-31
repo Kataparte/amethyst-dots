@@ -21,7 +21,7 @@
   "menus.dashboard.powermenu.avatar.name": "kataparte",
   "theme.bar.buttons.dashboard.icon": "#c061cb",
   "theme.bar.buttons.dashboard.border": "#613583",
-  "bar.clock.format": "%a %b %d  %I:%M:%S %p",
+  "bar.clock.format": "%a %b %d  %I:%M %p",
   "theme.bar.outer_spacing": "0.5em",
   "theme.matugen_settings.mode": "dark",
   "wallpaper.enable": true,
