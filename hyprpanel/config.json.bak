@@ -1,0 +1,98 @@
+{
+  "bar.customModules.weather.command": "/home/kataparte/fetch_weather.sh",
+  "bar.customModules.weather.pollingInterval": 600000,
+  "bar.customModules.storage.paths": [
+    "/"
+  ],
+  "wallpaper.image": "/home/kataparte/Pictures/bebop.jpg",
+  "theme.matugen": true,
+  "wallpaper.enable": true,
+  "theme.bar.custom_css": "/home/kataparte/.config/hyprpanel/style.css",
+  "theme.bar.floating": true,
+  "theme.bar.enableShadow": false,
+  "menus.dashboard.powermenu.avatar.name": "kataparte",
+  "menus.volume.raiseMaximumVolume": true,
+  "bar.workspaces.workspaces": 5,
+  "bar.workspaces.workspaceIconMap": {},
+  "bar.workspaces.applicationIconMap": {
+    "1": {
+      "icon": "",
+      "color": "#D980B9"
+    },
+    "2": {
+      "icon": "",
+      "color": "#D980B9"
+    },
+    "3": {
+      "icon": "",
+      "color": "#D980B9"
+    },
+    "4": {
+      "icon": "",
+      "color": "#D980B9"
+    }
+  },
+  "theme.bar.buttons.dashboard.icon": "#9141ac",
+  "theme.bar.buttons.battery.icon": "#dc8add",
+  "theme.bar.buttons.battery.text": "#c061cb",
+  "theme.bar.buttons.battery.border": "#613583",
+  "menus.dashboard.powermenu.avatar.image": "/home/kataparte/Pictures/faye.jpg",
+  "menus.clock.time.hideSeconds": true,
+  "bar.clock.format": "%a %b %d  %I:%M %p",
+  "menus.clock.weather.source": "openweathermap",
+  "menus.clock.weather.key": "",
+  "menus.clock.weather.location": "",
+  "menus.clock.weather.enabled": false,
+  "bar.layouts": {
+    "0": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "network",
+        "bluetooth",
+        "battery",
+        "systray",
+        "custom/weather",
+        "clock",
+        "notifications"
+      ]
+    },
+    "1": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "clock",
+        "notifications"
+      ]
+    },
+    "2": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "clock",
+        "notifications"
+      ]
+    }
+  }
+}
