@@ -1,4 +1,4 @@
-# ~/.config/hypr/hyprland.conf
+nano ~/dotfiles/hypr/hyprland.confnano ~/dotfiles/hypr/hyprland.conf# ~/.config/hypr/hyprland.conf
 
 # 1. MONITOR CONFIG
 monitor=eDP-1, 1920x1080@60, 0x0, 1
@@ -14,7 +14,7 @@ exec-once = hyprpanel
 exec-once = nm-applet --indicator
 exec-once = killall -9 swaync
 exec-once = firefox
-exec-once = [workspace 3 silent] steam
+exec-once = steam
 exec-once = hyprctl setcursor Layan-cursors 28
 exec-once = gsettings set org.gnome.desktop.interface cursor-theme 'Layan-cursors'
 exec-once = gsettings set org.gnome.desktop.interface cursor-size 28
@@ -130,8 +130,7 @@ dwindle {
 windowrulev2 = opacity 0.8 override 0.8 override, class:^(rofi)$
 windowrulev2 = workspace 1 silent, class:^(firefox)$
 windowrulev2 = workspace 2, initialClass:^(nvim)$
-#windowrulev2 = workspace 3, class:^(steam)$
-windowrulev2 = workspace 3 silent, initialClass:^(steam)$
+windowrulev2 = workspace 3, class:^(steam)$
 
 # Dashboard Rules
 windowrulev2 = workspace 4, title:^(dash_btop)$
@@ -148,12 +147,15 @@ dwindle {
     preserve_split = true
 }
 
-# Aggressive floating rules for HyprPanel
+# Force HyprPanel/AGS to float and center
 windowrulev2 = float, class:^(com.github.Aylur.ags)$
-windowrulev2 = float, class:^(gjs)$
-windowrulev2 = float, title:^(Settings)$
-windowrulev2 = float, title:.*(HyprPanel).*
-
-# Force it to the center
 windowrulev2 = center, class:^(com.github.Aylur.ags)$
+windowrulev2 = float, class:^(hyprpanel)$
+windowrulev2 = center, class:^(hyprpanel)$
+windowrulev2 = float, class:^(gjs)$
+windowrulev2 = center, class:^(gjs)$
+
+# Specific rule for the Settings window title
+windowrulev2 = float, title:^(Settings)$
+windowrulev2 = size 1050 750, title:^(Settings)$
 windowrulev2 = center, title:^(Settings)$
