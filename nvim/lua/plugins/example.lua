@@ -16,10 +16,4 @@ return {
       colorscheme = "catppuccin",
     },
   },
-  -- New Live Server Plugin
-  {
-    "barrett-ruth/live-server.nvim",
-    cmd = { "LiveServerStart", "LiveServerStop" },
-    config = true,
-  },
 }
