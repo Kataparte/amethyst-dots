@@ -104,5 +104,11 @@
   "theme.bar.menus.menu.dashboard.card.color": "#1e1e2e",
   "theme.bar.buttons.notifications.background": "#242438",
   "theme.bar.transparent": false,
-  "theme.bar.background": "#11111b"
+  "theme.bar.background": "#11111b",
+  "menus.dashboard.directories.left.directory1.label": "󰉍  Downloads",
+  "menus.dashboard.directories.left.directory2.label": "󰉏  Videos",
+  "menus.dashboard.directories.left.directory3.label": "󰚝  Projects",
+  "menus.dashboard.directories.right.directory1.label": "󱧶  Documents",
+  "menus.dashboard.directories.right.directory2.label": "󰉏  Pictures",
+  "menus.dashboard.directories.right.directory3.label": "󱂵  Home"
 }
