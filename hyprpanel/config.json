@@ -39,60 +39,10 @@
   "bar.launcher.autoDetectIcon": false,
   "theme.bar.buttons.dashboard.enableBorder": false,
   "theme.bar.buttons.separator.margins": "0.15em",
-  "theme.bar.dropdownGap": "2.9em",
+  "theme.bar.dropdownGap": "2.5em",
   "theme.bar.buttons.radius": "0.3em",
   "theme.bar.outer_spacing": "0.7em",
-  "bar.layouts": {
-    "0": {
-      "left": [
-        "dashboard",
-        "workspaces",
-        "windowtitle"
-      ],
-      "middle": [
-        "media"
-      ],
-      "right": [
-        "volume",
-        "network",
-        "bluetooth",
-        "battery",
-        "systray",
-        "clock",
-        "notifications"
-      ]
-    },
-    "1": {
-      "left": [
-        "dashboard",
-        "workspaces",
-        "windowtitle"
-      ],
-      "middle": [
-        "media"
-      ],
-      "right": [
-        "volume",
-        "clock",
-        "notifications"
-      ]
-    },
-    "2": {
-      "left": [
-        "dashboard",
-        "workspaces",
-        "windowtitle"
-      ],
-      "middle": [
-        "media"
-      ],
-      "right": [
-        "volume",
-        "clock",
-        "notifications"
-      ]
-    }
-  },
+  "bar.layouts": [],
   "bar.battery.label": true,
   "theme.bar.buttons.battery.enableBorder": false,
   "menus.power.lowBatteryNotification": true,
@@ -110,5 +60,25 @@
   "menus.dashboard.directories.left.directory3.label": "󰚝  Projects",
   "menus.dashboard.directories.right.directory1.label": "󱧶  Documents",
   "menus.dashboard.directories.right.directory2.label": "󰉏  Pictures",
-  "menus.dashboard.directories.right.directory3.label": "󱂵  Home"
+  "menus.dashboard.directories.right.directory3.label": "󱂵  Home",
+  "theme.bar.location": "top",
+  "bar.autoHide": "fullscreen",
+  "theme.bar.buttons.enableBorders": false,
+  "theme.bar.border.location": "none",
+  "theme.bar.enableShadow": false,
+  "bar.workspaces.showWsIcons": true,
+  "bar.workspaces.showApplicationIcons": true,
+  "theme.bar.buttons.workspaces.smartHighlight": true,
+  "bar.windowtitle.custom_title": true,
+  "bar.windowtitle.icon": true,
+  "bar.windowtitle.class_name": true,
+  "bar.windowtitle.label": true,
+  "bar.windowtitle.truncation": true,
+  "notifications.position": "top right",
+  "menus.audio.anchor": "top right",
+  "menus.network.anchor": "top right",
+  "menus.energy.anchor": "top right",
+  "menus.notifications.anchor": "top right",
+  "scalingPriority": "hyprland",
+  "theme.bar.layer": "top"
 }
