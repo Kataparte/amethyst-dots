@@ -1,0 +1,5 @@
+/* GTK / Wofi / Waybar (GTK CSS) */
+@define-color fg-main     #e6dccb;
+@define-color fg-muted   #7a6a55;
+@define-color accent     #d9a441;
+@define-color bg-hover   rgba(217, 164, 65, 0.12);

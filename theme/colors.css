@@ -1,0 +1,15 @@
+/* ===== Shared theme colors ===== */
+
+/* ---- GTK / Wofi ---- */
+@define-color fg-main     #e6dccb;
+@define-color fg-muted   #7a6a55;
+@define-color accent     #d9a441;
+@define-color bg-hover   rgba(217, 164, 65, 0.12);
+
+/* ---- Waybar / CSS ---- */
+:root {
+  --fg-main:   #e6dccb;
+  --fg-muted: #7a6a55;
+  --accent:   #d9a441;
+  --bg-hover: rgba(217, 164, 65, 0.12);
+}
