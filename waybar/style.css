@@ -1,3 +1,5 @@
+@import "colors.css";
+
 * {
     all: unset;
     font-family: "JetBrainsMono Nerd Font";
@@ -6,95 +8,74 @@
 }
 
 window#waybar {
-    background: rgba(26, 21, 37, 0.6);
-    border: 1px solid rgba(192, 97, 203, 0.3);
+    /* Using the bar_bg from Matugen which has the 0.6 alpha transparency */
+    background: @bar_bg; 
+    border: 1px solid @bar_border;
     border-radius: 16px;
+    margin: 10px;
 }
 
-/* Base Pill Style - Added #tray and #custom-power */
-#custom-launcher, 
-#workspaces,
-#cpu,
-#memory,
-#disk, 
-#clock,
-#custom-weather, 
-#pulseaudio, 
-#network, 
-#battery, 
-#tray,
-#custom-notification, 
-#custom-power {
-    background: rgba(192, 97, 203, 0.15);
-    color: #f5c2e7;
+/* Base Pill/Bubble Style */
+#custom-launcher, #workspaces, #cpu, #memory, #disk, #clock, #custom-weather, #pulseaudio, #network, #battery, #tray, #custom-notification, #custom-power {
+    background: @pill_bg;
+    color: @on_surface;
     border-radius: 20px;
     padding: 0 12px;
-    margin: 4px 3px; /* Standard space between bubbles */
-    border: 1px solid rgba(192, 97, 203, 0.2);
+    margin: 4px 3px;
+    border: 1px solid @bar_border;
+    text-shadow: 0px 0px 2px rgba(0,0,0,0.5);
     transition: all 0.3s ease;
 }
 
-menu {
-    background-color: #1a1525;
-    border: 1px solid #c061cb;
-    color: #f5c2e7;
-    border-radius: 8px;
-    padding: 10px;    
+/* Hover Effects */
+#pulseaudio:hover, #network:hover, #clock:hover, #battery:hover, #tray:hover, #custom-notification:hover, #custom-power:hover {
+    background: @primary;
+    color: @surface;
 }
 
-menuitem {
-    padding: 4px 12px; /* Adds a bit of internal space for the text */
-}
+/* Spacing and Alignment Fixes */
+#custom-launcher { margin-left: 15px; }
+#custom-power { margin-right: 15px; }
 
-#tray {
-    margin: 4px 3px;
-    padding: 0 4px;
-}
-
-#tray image {
-    margin: 0 2px; /* Very tight spacing for Steam and Network */
-}
-
-#tray button {
-    margin: 0;
-    padding: 0;
-}
-
-/* End-cap Spacing and Grouping */
-#custom-launcher {
-    margin-left: 15px; 
-}
-
-/* Reduce gap between Notification and Power */
-#custom-notification {
-    margin-right: 0px; 
-}
-
-/* Fix Power Button alignment */
-#custom-power {
-    margin-left: 3px;
-    margin-right: 15px; /* Pushes the button away from the very edge of the bar */
-}
-
-/* Workspace Dot Spacing */
 #workspaces button {
     padding: 0 6px; 
-    color: rgba(245, 194, 231, 0.4);
+    color: @on_surface;
+    opacity: 0.4;
 }
 
 #workspaces button.active {
-    color: #cba6f7;
+    color: @primary;
+    opacity: 1;
 }
 
-/* Hover Effects - Added Tray and Power */
-#pulseaudio:hover, 
-#network:hover, 
-#clock:hover, 
-#battery:hover, 
-#custom-weather:hover,
-#tray:hover,
-#custom-notification:hover,
-#custom-power:hover {
-    background: rgba(192, 97, 203, 0.25);
-    border: 1px solid rgba(192, 97, 203, 0.5);
+/* Waybar Media Player */
+#group-media {
+    background: @pill_bg;
+    border: 1px solid @bar_border;
+    border-radius: 20px;
+    padding: 0 10px;
+    margin: 0 5px;
+}
+
+#custom-playerctl-prev, #custom-playerctl-play, #custom-playerctl-next {
+    color: @primary;
+    padding: 0 5px;
+    font-size: 16px;
+}
+
+#custom-playerctl-title {
+    color: @on_surface;
+    font-weight: bold;
+    padding: 0 10px;
+    border-right: none; 
+    margin-right: 5px;
+}
+
+#custom-cava {
+    color: @primary;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 16px;
+    min-width: 100px; /* Force it to be wide enough to see */
+    margin-left: 10px;
+    background: rgba(255, 255, 255, 0.1); /* Temporary: help us see the 'box' */
 }

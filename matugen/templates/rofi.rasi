@@ -1,0 +1,7 @@
+* {
+    primary: {{colors.primary.default.hex}};
+    bg: rgba({{colors.surface.default.red}}, {{colors.surface.default.green}}, {{colors.surface.default.blue}}, 0.7);
+    bg-alt: rgba({{colors.surface.default.red}}, {{colors.surface.default.green}}, {{colors.surface.default.blue}}, 0.9);
+    fg: {{colors.on_surface.default.hex}};
+    border-col: {{colors.primary.default.hex}};
+}

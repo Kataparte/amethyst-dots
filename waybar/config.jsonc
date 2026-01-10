@@ -7,7 +7,11 @@
     "margin-right": 10,    
     "margin-bottom": 12,  
 
-    "modules-left": ["custom/launcher", "hyprland/workspaces", "cpu", "memory", "disk"],
+    "modules-left": [
+    "custom/launcher", 
+    "hyprland/workspaces", 
+    "group/media" 
+    ],
     "modules-center": ["custom/weather", "clock"],
     "modules-right": [
     "tray",
@@ -92,5 +96,54 @@
     "disk": {
         "format": "󰋊  {percentage_used}%",
         "interval": 60
+    },
+
+    "group/media": {
+    "orientation": "horizontal",
+    "modules": [
+        "custom/playerctl-prev",
+        "custom/playerctl-play",
+        "custom/playerctl-next",
+        "custom/playerctl-title",
+        "custom/cava"
+        ]
+    },
+
+    "custom/playerctl-title": {
+        "format": "<span>{}</span>",
+        "return-type": "json",
+        "max-length": 25,
+        "exec": "playerctl -a metadata --format '{\"text\": \"{{title}}\", \"tooltip\": \"{{artist}} - {{title}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F"
+    },
+
+    "custom/playerctl-prev": {
+        "format": "󰒮",
+        "on-click": "playerctl previous",
+        "tooltip": false
+    },
+
+    "custom/playerctl-play": {
+        "format": "{icon}",
+        "return-type": "json",
+        "exec": "playerctl -a metadata --format '{\"alt\": \"{{status}}\"}' -F",
+        "format-icons": {
+            "Playing": "󰏤",
+            "Paused": "󰐊"
+        },
+        "on-click": "playerctl play-pause",
+        "tooltip": false
+    },
+
+    "custom/playerctl-next": {
+        "format": "󰒭",
+        "on-click": "playerctl next",
+        "tooltip": false
+    },
+
+    "custom/cava": {
+        "exec": "~/.local/bin/waybar-cava",
+        "format": "{}",
+        "tooltip": false
     }
+
 }

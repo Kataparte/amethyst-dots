@@ -1,17 +1,29 @@
 [config]
+default_type = "dark"
 
 [templates.hyprland]
 input_path = '~/.config/matugen/hyprland.conf'
-output_path = '~/.cache/matugen/colors-hyprland.conf'
+output_path = '~/.config/hypr/colors.conf'
 
 [templates.kitty]
 input_path = '~/.config/matugen/kitty.conf'
-output_path = '~/.cache/matugen/colors-kitty.conf'
+output_path = '~/.config/kitty/colors.conf'
 
 [templates.rofi]
-input_path = '~/.config/matugen/rofi.rasi'
-output_path = '~/.cache/matugen/colors-rofi.rasi'
+input_path = '~/.config/matugen/templates/rofi.rasi'
+output_path = '~/.config/rofi/colors.rasi'
 
 [templates.waybar]
 input_path = '~/.config/matugen/templates/waybar.css'
 output_path = '~/.config/waybar/colors.css'
+# This signal tells Waybar to reload its CSS without a full kill/restart
+post_hook = 'pkill -SIGUSR2 waybar'
+
+[templates.swaync]
+input_path = '~/.config/matugen/templates/swaync.css'
+output_path = '~/.config/swaync/colors.css'
+post_hook = 'swaync-client -rs'
+
+[templates.cava]
+input_path = '~/.config/matugen/templates/cava.conf'
+output_path = '~/.config/cava/config_waybar'
