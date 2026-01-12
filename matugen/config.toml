@@ -27,3 +27,7 @@ post_hook = 'swaync-client -rs'
 [templates.cava]
 input_path = '~/.config/matugen/templates/cava.conf'
 output_path = '~/.config/cava/config_waybar'
+
+[templates.hyprlock]
+input_path = '~/.config/matugen/templates/hyprlock.conf'
+output_path = '~/.config/hypr/hyprlock.conf'
