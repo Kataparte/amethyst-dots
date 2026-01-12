@@ -31,3 +31,7 @@ output_path = '~/.config/cava/config_waybar'
 [templates.hyprlock]
 input_path = '~/.config/matugen/templates/hyprlock.conf'
 output_path = '~/.config/hypr/hyprlock.conf'
+
+[templates.vscode]
+input_path = '~/.config/matugen/templates/vscode.json'
+output_path = '~/.config/Code - OSS/User/settings.json'
