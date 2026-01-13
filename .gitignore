@@ -1,1 +1,6 @@
 waybar/colors.css
+
+.git/
+*.log
+*history
+.env
