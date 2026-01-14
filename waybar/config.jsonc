@@ -69,7 +69,7 @@
     "custom/power": {
         "format": "⏻",
         "tooltip": false,
-        "on-click": "wlogout -C ~/.config/wlogout/style.css -l ~/.config/wlogout/layout -b 2"
+        "on-click": "wleave --css /home/kataparte/.config/wlogout/style.css"
     },
 
     "custom/weather": {

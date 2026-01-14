@@ -1,45 +1,40 @@
-* {
-    background-image: none;
-    transition: 200ms;
-}
+@import "../../.config/waybar/colors.css";
 
 window {
-    background-color: rgba(12, 10, 15, 0.4);
+    background-color: transparent;
+}
+
+/* This is the container that actually holds the buttons */
+grid {
+    background-color: @pill_bg;
+    border: 1px solid @bar_border;
+    border-radius: 24px;
+    padding: 10px;
+    /* Force the position: Top Right */
+    margin-top: 60px;
+    margin-right: 20px;
+    margin-left: 1700px; /* Increase this to make the pill thinner */
+    margin-bottom: 550px; /* Increase this to make the pill shorter */
 }
 
 button {
-    color: #a377bf;
-    background-color: #1a1624;
-    border: 2px solid #2d263d;
-    border-radius: 20px;
-    margin: 10px; /* Reduced from 20px to bring them closer */
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 25%;
+    all: unset;
+    background-color: transparent;
+    border-radius: 16px;
+    margin: 4px;
+    padding: 10px;
+    color: @on_surface;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 16px;
+    transition: 0.2s ease-in-out;
 }
 
 button:hover {
-    background-color: #2d263d;
-    color: #c061cb;
-    border: 2px solid #c061cb;
+    background-color: @primary;
+    color: @surface;
 }
 
-/* --- ICON LINKING --- */
-/* These paths are standard. We link them here since the layout is custom */
-#lock {
-    background-image: url("/usr/share/wlogout/icons/lock.png");
-}
-#logout {
-    background-image: url("/usr/share/wlogout/icons/logout.png");
-}
-#shutdown {
-    background-image: url("/usr/share/wlogout/icons/shutdown.png");
-}
-#reboot {
-    background-image: url("/usr/share/wlogout/icons/reboot.png");
-}
-
-/* Container spacing: This makes the 2x2 grid much tighter */
-#lock, #logout, #shutdown, #reboot {
-    margin: 20px; 
+/* Removes the default bulky icons */
+#lock, #logout, #reboot, #shutdown {
+    background-image: none;
 }
