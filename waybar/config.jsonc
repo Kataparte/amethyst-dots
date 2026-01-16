@@ -8,7 +8,8 @@
     "margin-bottom": 12,  
 
     "modules-left": [
-    "custom/launcher", 
+    "custom/launcher",
+    "custom/wallpaper", 
     "hyprland/workspaces", 
     "group/media" 
     ],
@@ -155,6 +156,11 @@
         "exec": "pgrep -x hyprsunset > /dev/null && echo '󰖔' || echo '󰖙'",
         "on-click": "pgrep -x hyprsunset > /dev/null && killall hyprsunset || hyprsunset -t 5000",
         "tooltip": false
+    },
+    
+    "custom/wallpaper": {
+        "format": "󰏘",
+        "on-click": "wall-picker",
+        "tooltip": false
     }
-
 }

@@ -1,1 +1,75 @@
-/* Fresh Start */
+/* Import your dynamic Matugen colors */
+@import "/home/kataparte/.config/rofi/colors.rasi"
+
+configuration {
+    font: "JetBrainsMono Nerd Font 10";
+    show-icons: true;
+    /* This tells Rofi to look at the icons we sent in the script */
+    icon-theme: "Papirus"; 
+}
+
+window {
+    /* 1. Set the location to North West (Top Left) */
+    location:           north west;
+    anchor:             north west;
+
+    /* 2. Position it precisely beneath your Waybar module */
+    /* Adjust x-offset to align it horizontally with your Arch logo/module */
+    /* Adjust y-offset to move it down (Waybar height + margin) */
+    x-offset:           11px; 
+    y-offset:           11px; 
+
+    width:              480px; 
+    border:             2px;
+    border-radius:      15px;
+    border-color:       @primary; 
+    background-color:   @bg;
+}
+
+mainbox {
+    background-color: transparent;
+    children: [ listview ];
+}
+
+listview {
+    columns:          2;    /* 3 images per row */
+    lines:            3;    /* Show 2 rows at a time */
+    spacing:          5px; /* Spacing & padding reduced from 10 & 15px */
+    padding:          10px;
+    cycle:            true;
+    dynamic:          true;
+    background-color: transparent;
+    fixed-columns: true; /* Curb weird grid expansion */
+}
+
+element {
+    orientation:      vertical; /* Put the image above the text */
+    padding:          4px; /* Padding & radius reduced from 10px */
+    border-radius:    12px;
+    background-color: transparent;
+    /*text-color:       @fg;*/
+    children:         [element-icon];
+}
+
+element-icon {
+    size:             190px; /* Increased from 180px to fill more space */
+    horizontal-align: 0.5;
+    margin: 5px;  /* Added a bit of margin to ensure the highlight doesn't touch the image edges */
+    background-color: transparent;
+}
+
+element-text {
+    enabled: false;
+    horizontal-align: 0.5;
+    background-color: transparent;
+    text-color:       inherit;
+    font:             "JetBrainsMono Nerd Font 9";
+}
+
+element selected {
+    /* Highlights the chosen image with your wallpaper's primary color */
+    background-color: @primary;
+    text-color:       @bg;
+    border: 2px;
+    border-color: @fg;
+}

@@ -147,3 +147,36 @@ menu, tooltip {
 #tray * {
     margin: 0 2px;
 }
+
+/* Make it look like the middle of the pill */
+#custom-wallpaper {
+    background: @pill_bg;
+    color: @primary;
+    padding: 0 10px;
+    margin: 4px 0;      /* Remove side margins to touch the logo and workspaces */
+    border-top: 1px solid @bar_border;
+    border-bottom: 1px solid @bar_border;
+    border-left: none;  /* Remove borders between segments */
+    border-right: none;
+    border-radius: 0;   /* Square edges so it connects */
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+/* Update the Launcher so it only rounds the left side */
+#custom-launcher { 
+    margin-left: 15px; 
+    margin-right: 0; 
+    border-right: none;
+    border-radius: 20px 0 0 20px; 
+}
+
+/* This adds a tiny vertical line between the logo and wallpaper if you want one */
+#custom-wallpaper {
+    border-left: 1px solid rgba(255,255,255,0.1); 
+}
+
+#custom-wallpaper:hover {
+    background: @primary;
+    color: @surface;
+}
