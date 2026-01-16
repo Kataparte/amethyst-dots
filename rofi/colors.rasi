@@ -1,18 +1,18 @@
 * {
-    primary: #d5bbfc;
-    bg: rgba(21, 18, 24, 0.7);
-    bg-alt: rgba(21, 18, 24, 0.9);
-    fg: #e7e0e8;
-    border-col: #d5bbfc;
+    primary: #a0cafd;
+    bg: rgba(16, 20, 24, 0.7);
+    bg-alt: rgba(16, 20, 24, 0.9);
+    fg: #e1e2e8;
+    border-col: #a0cafd;
 
     /* The "Missing" variable your error mentioned */
-    selected-normal-background: #d5bbfc;
+    selected-normal-background: #a0cafd;
     
     /* Additional standard variables to prevent future errors */
-    selected-normal-foreground: #3a255b;
+    selected-normal-foreground: #003258;
     normal-background: transparent;
-    normal-foreground: #e7e0e8;
+    normal-foreground: #e1e2e8;
     alternate-normal-background: transparent;
-    active-background: #cec2db;
+    active-background: #bac8db;
     urgent-background: #ffb4ab;
 }
