@@ -57,3 +57,4 @@ output_path = '~/.config/matugen/matrix_alias.sh'
 input_path = '~/.config/matugen/templates/sys_dashboard.sh'
 output_path = '~/.config/hypr/scripts/sys_dashboard.sh'
 post_hook = 'chmod +x ~/.config/hypr/scripts/sys_dashboard.sh'
+

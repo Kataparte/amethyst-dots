@@ -1,0 +1,12 @@
+@define-color matugen_bg {{colors.surface.default.hex}};
+@define-color matugen_fg {{colors.on_surface.default.hex}};
+@define-color matugen_accent {{colors.primary.default.hex}};
+
+window, grid, notebook, .thunar {
+    background-color: @matugen_bg;
+    color: @matugen_fg;
+}
+
+selection, *:selected {
+    background-color: @matugen_accent;
+}

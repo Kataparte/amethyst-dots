@@ -41,7 +41,7 @@
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-icons": ["󰕿", "󰖀", "󰕾"],
-        "on-click": "swaync-client -t -sw" // Back to original
+        "on-click": "swaync-client -t -sw"
     },    
     
     "bluetooth": {
