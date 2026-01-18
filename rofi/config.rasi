@@ -1,20 +1,20 @@
 @theme "/usr/share/rofi/themes/sidebar.rasi"
+/* Import Matugen colors HERE so they are available for the blocks below */
 @import "~/.config/rofi/colors.rasi"
 
 /* --- Slim & Bright Overrides --- */
 window {
-    width: 25%;           /* Slimmer width for that "sidebar" feel */
-    height: 45%;          /* Shorter height so it doesn't hit the bottom */
+    width: 25%;
+    height: 45%;
     
-    /* Position it at the Top-Left */
     location: north west; 
     anchor: north west;
     
-    /* Nudge it so it aligns under the Arch icon */
-    x-offset: 10px;       /* Moves it slightly away from the left edge */
-    y-offset: 10px;       /* Moves it down so it doesn't overlap the Waybar */
+    x-offset: 10px;
+    y-offset: 10px;
     
-    background-color: rgba(60, 60, 90, 0.9); /* Brighter glass */
+    /* CHANGE: Use the variable 'bg' from your Matugen template instead of hardcoded rgba */
+    background-color: @bg; 
     border: 2px;
     border-color: @selected-normal-background;
     border-radius: 15px;
@@ -27,7 +27,7 @@ mainbox {
 
 listview {
     background-color: transparent;
-    lines: 10;            /* Limits how many apps show at once */
+    lines: 10;
     spacing: 5px;
     scrollbar: false;
 }
@@ -39,7 +39,7 @@ element {
 }
 
 element selected.normal {
-    background-color: @selected-normal-background; /* This uses your Matugen purple */
+    background-color: @selected-normal-background;
     text-color: @selected-normal-foreground;
 }
 
@@ -56,4 +56,3 @@ configuration {
     sort: false;
     disable-history: true;
 }
-
