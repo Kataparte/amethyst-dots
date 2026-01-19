@@ -2,14 +2,20 @@
 
 options="󰓅 Performance\n󰾅 Balanced\n󰾆 Power Saver"
 
-# we use -drun-display-format to clear the internal label
-# and -theme-str to specifically hide the entry placeholder
 chosen="$(echo -e "$options" | rofi -dmenu -p "" \
-    -theme-str 'window { width: 12%; location: north; y-offset: 45; border: 2px; border-radius: 15px; border-color: #2d263d; background-color: #1a1624; }' \
-    -theme-str 'mainbox { children: [ listview ]; }' \
-    -theme-str 'listview { lines: 3; scrollbar: false; padding: 5px; }' \
-    -theme-str 'entry { placeholder: ""; }' \
-    -theme-str 'element { padding: 8px; border-radius: 10px; }')"
+    -theme-str 'window { 
+        width: 15%; 
+        height: 0;           /* IMPORTANT: This overrides your global 45% height */
+        location: north east; 
+        anchor: north east; 
+        x-offset: -0.5%;     /* Adjust this to move Left/Right */
+        y-offset: 1%;      /* Adjust this to move Up/Down */
+    }' \
+    -theme-str 'listview { 
+        lines: 3; 
+        fixed-height: false; /* Forces the box to shrink to fit only 3 lines */
+    }' \
+    -theme-str 'mainbox { children: [ listview ]; }')"
 
 case $chosen in
     *Performance) powerprofilesctl set performance ;;
