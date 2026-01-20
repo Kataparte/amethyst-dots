@@ -13,9 +13,8 @@
     "hyprland/workspaces", 
     "group/media" 
     ],
-    "modules-center": ["custom/weather", "clock"],
+    "modules-center": ["custom/weather", "clock", "tray"],
     "modules-right": [
-    "network",
     "custom/sunset",
     "pulseaudio",
     "battery",
@@ -55,13 +54,6 @@
         "on-click": "rofi-bluetooth -theme ~/.config/rofi/selector.rasi" 
     },
 
-    "network": {
-        "format-wifi": " ",
-        "format-ethernet": "󰈀 ",
-        "tooltip-format": "{essid} {signalStrength}%",
-        "on-click": "~/.config/rofi/rofi-network-menu.sh"
-    },
-    
     "custom/notification": {
         "tooltip": false,
         "format": "󰂚",
@@ -165,5 +157,13 @@
         "format": "󰏘",
         "on-click": "wall-picker",
         "tooltip": false
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10,
+        "exclude": [
+            "nm-applet" 
+        ]
     }
 }

@@ -164,3 +164,30 @@ tooltip label {
     padding: 8px;
     background: transparent;
 }
+
+#tray {
+    background: @pill_bg;
+    color: @on_surface;
+    border-radius: 20px;
+    padding: 0 12px;
+    margin: 4px 3px;
+    border: 1px solid @bar_border;
+}
+
+/* Styles the internal GTK menus used by the tray */
+menu {
+    background-color: #1e1e2e; /* Your solid hex */
+    border: 1px solid @bar_border;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+menu item {
+    color: @on_surface;
+    padding: 4px 8px;
+}
+
+menu item:hover {
+    background: @primary;
+    color: @surface;
+}
