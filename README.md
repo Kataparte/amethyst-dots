@@ -1,60 +1,75 @@
 # 🌌 Amethyst-Dots
 
-A streamlined, Matugen-driven Hyprland configuration. This setup focuses on aesthetic consistency, automated color-theming, and a high-performance "Gallery" experience.
+A streamlined, **Matugen-driven** Hyprland configuration. This setup focuses on aesthetic consistency, automated color-theming, and a high-performance interactive experience.
+
+> **Current Theme:** 🩵 Ranni Cyan / Aqua  
+> **Status:** 🦉 Owl-Approved Terminal Environment
 
 ---
 
 ## 🛠️ System Overview
 * **OS:** Arch Linux 🐧
-* **WM:** Hyprland
-* **Bar:** Waybar (Dynamic Amethyst modules)
+* **WM:** [Hyprland](https://hyprland.org/)
+* **Lock Screen:** [Hyprlock](https://wiki.hyprland.org/Hypr-ecosystem/hyprlock/) (Custom Bebop City layout)
 * **Theme Engine:** [Matugen](https://github.com/InioX/matugen)
-* **Notifications/Control Center:** SwayNC
-* **Launcher/Picker:** Rofi-Wayland
-* **Terminal:** Kitty
-* **Shell:** Bash (with custom `dots` sync script)
+* **Interactive UI:** [AGS (Aylur's GTK Shell)](https://aur.archlinux.org/packages/ags)
+* **Shell:** Bash + Starship + Zoxide
+* **Development:** Neovim (LazyVim + CSC-120 Python Workspace)
 
 ---
 
-## ✨ New: Amethyst Wall-Picker
-The highlight of this build is a custom-engineered Wallpaper Picker:
-* **Instant Previews:** Uses ImageMagick to cache thumbnails for zero-lag browsing.
-* **Dynamic Sync:** Selecting a wall automatically triggers Matugen to re-theme the entire system (Waybar, Kitty, Rofi, and SwayNC).
-* **Drop-Down UI:** Perfectly anchored beneath the Waybar "Amethyst" module for a native OS feel.
+## ✨ Build Highlights
+
+### 🔒 Interactive Lock Screen
+Custom-built **Hyprlock** interface featuring:
+* Floating power icons (Shutdown, Reboot, Logout) centered with Pango-styled labels.
+* Proportional Clock/Date display with "Bebop City" background integration.
+* Subtle shadow-pops for high visibility against complex wallpapers.
+
+### 🎨 Matugen DNA
+This build is entirely dynamic. The `matugen/templates` folder contains the source code for:
+* **Waybar** CSS & **SwayNC** colors.
+* **Kitty** terminal themes & **Cava** visualizer bars.
+* **Neovim** color palette exports.
+* **Rofi** application launcher skins.
+
+### 🐍 Python Workflow (CSC-120)
+* **`py` Toggle:** A custom Bash function to instantly switch in/out of the virtual environment.
+* **SnipRun:** Integrated into Neovim for instant code execution.
 
 ---
 
 ## 📦 Dependencies
 
-### **Core Desktop Environment**
+This repository tracks all installed packages via:
+* **`pkglist.txt`**: Official Arch repository packages.
+* **`aurlist.txt`**: AUR-specific packages (Matugen, AGS, etc.).
+
+### **Key Components**
 | Category | Packages |
 | :--- | :--- |
 | **Window Manager** | `hyprland`, `hyprpaper`, `hypridle`, `hyprlock` |
-| **UI Components** | `waybar`, `swaync`, `rofi-wayland`, `wlogout` |
+| **UI Components** | `waybar`, `swaync`, `rofi-wayland`, `ags` |
 | **Theming** | `matugen-bin`, `nwg-look`, `imagemagick` |
-| **AUR Extras** | `ags` (Optional), `hyprsunset` |
-
-### **Apps & Utilities**
-* **Terminal:** `kitty`
-* **File Manager:** `thunar`
-* **System Info:** `btop`, `fastfetch`
-* **Audio/Visual:** `cava`, `playerctl`, `pavucontrol`
+| **Utilities** | `eza`, `zoxide`, `fzf`, `starship`, `btop`, `fastfetch` |
 
 ---
 
 ## 📂 Repository Structure
-- `hypr/`: Core window manager logic and keybindings.
-- `waybar/`: Top bar configuration with dynamic color imports.
-- `rofi/`: Themed application launcher and the **Amethyst Gallery**.
-- `scripts/`: Home of `wall-picker` and the `dots` sync utility.
-- `swaync/`: Notification daemon and Control Center CSS.
-- `matugen/`: Material You templates for system-wide colors.
-- `cava/`: Audio visualizer synced to the system palette.
+- `hypr/`: Core WM logic and the "No-Clip" Hyprlock config.
+- `matugen/`: Templates for system-wide color generation.
+- `scripts/`: Custom utilities like `sunset-check.sh` and `dots`.
+- `wallpapers/`: Core assets (e.g., `bebop_city.png`).
+- `.bashrc`: Shell configuration, aliases, and the Python `py()` function.
 
 ---
 
-## 📥 Installation
+## 📥 Installation & Sync
 
-1. **Clone the repo:**
-   ```bash
-   git clone [https://github.com/Kataparte/amethyst-dots.git](https://github.com/Kataparte/amethyst-dots.git) ~/amethyst-dots
+### **1. Replicate Environment**
+```bash
+# Install official packages
+sudo pacman -S --needed - < pkglist.txt
+
+# Install AUR packages (using paru)
+paru -S --needed - < aurlist.txt
