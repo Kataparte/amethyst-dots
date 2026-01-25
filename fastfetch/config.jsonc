@@ -7,15 +7,15 @@
             "left": 2
         },
         "color": {
-            "1": "#84d2e6",
-            "2": "#b2cbd2"
+            "1": "#a0cafd",
+            "2": "#bac8db"
         }
     },
     "display": {
         "separator": " ➜ ",
         "color": {
-            "keys": "#84d2e6",
-            "title": "#bec5eb"
+            "keys": "#a0cafd",
+            "title": "#d6bee5"
         }
     },
     "modules": [
