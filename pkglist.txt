@@ -1,5 +1,4 @@
 7zip 25.01-1
-ags-hyprpanel-git r622.b8c255b-1
 amd-ucode 20260110-1
 ark 25.12.1-1
 aurorae 6.5.5-1
@@ -18,6 +17,7 @@ bun-bin 1.3.5-1
 cava 0.10.6-1
 cmatrix 2.0-4
 dart-sass 1.97.2-1
+dgop 0.1.13-1
 discover 6.5.5-1
 drkonqi 6.5.5-1
 efibootmgr 18-3
@@ -33,6 +33,7 @@ fzf 0.67.0-2
 gamescope 3.16.19-3
 git 2.52.0-2
 github-cli 2.85.0-1
+go 2:1.25.6-1
 google-chrome 144.0.7559.59-1
 grim 1.5.0-2
 grimblast-git r153.41dbcac-1
@@ -46,6 +47,7 @@ hyprpanel-bin 0.3.1-1
 hyprpicker 0.4.5-8
 hyprsunset-git 0.3.3.r5.g3a73694-1
 imagemagick 7.1.2.12-2
+inotify-tools 4.25.9.0-1
 just 1.46.0-1
 kactivitymanagerd 6.5.5-1
 kde-cli-tools 6.5.5-1
@@ -94,7 +96,6 @@ lolcat 100.0.1-5
 man-db 2.13.1-1
 man-pages 6.16-1
 mangohud 0.8.2-2
-matugen-bin 3.1.0-1
 milou 6.5.5-1
 mongodb-bin 8.2.3-1
 mono 6.12.0.206-1
@@ -148,6 +149,7 @@ qqc2-breeze-style 6.5.5-1
 qt5-wayland 5.15.18+kde+r55-1
 qt6-wayland 6.10.1-1
 qt6ct 0.11-3
+quickshell-allflags-git r731.191085a-1
 rofi 2.0.0-1
 rofi-bluetooth-git r41.0cca4d4-1
 rust 1:1.92.0-1
