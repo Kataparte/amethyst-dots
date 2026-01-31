@@ -12,3 +12,4 @@ kitty/colors.conf
 rofi/colors.rasi
 swaync/colors.css
 nvim/lua/config/matugen_colors.lua
+fastfetch/config.jsonc
