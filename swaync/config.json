@@ -27,7 +27,7 @@
       "actions": [
         { "label": "󰤨", "command": "nm-connection-editor" },
         { "label": "󰂯", "command": "bluetoothctl power on" },
-        { "label": "󰂯 Buds", "command": "bluetoothctl connect 28:3D:C2:4A:87:4F" },
+        { "label": "󰂯 Buds", "command": "bluetoothctl connect 28:3D:C2:4A:87:4F && notify-send 'Buds Connected' 'Audio is now routed to your Buds2 Pro' -i bluetooth -a 'System'" },
         { "label": "󰄀", "command": "grimblast copy area" }
       ]
     },
