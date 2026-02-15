@@ -39,6 +39,7 @@
 
     "pulseaudio": {
         "format": "{icon} {volume}%",
+        "format-muted": "󰝟 {volume}%",
         "format-icons": ["󰕿", "󰖀", "󰕾"],
         "on-click": "swaync-client -t -sw"
     },    
