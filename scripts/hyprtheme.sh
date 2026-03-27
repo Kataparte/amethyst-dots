@@ -1,41 +1,23 @@
 #!/bin/bash
-
-# Define paths explicitly
 USER_NAME="kataparte"
+WALL_DIR="/home/$USER_NAME/Pictures/wallpapers"
 THEME_DIR_SYSTEM="/usr/share/hyprpanel/themes"
 THEME_DIR_CUSTOM="/home/$USER_NAME/.cache/hyprpanel/themes"
-WALL_DIR="/home/$USER_NAME/Pictures/wallpapers"
 
-# 1. Get Theme List
-SELECTED=$(ls $THEME_DIR_SYSTEM $THEME_DIR_CUSTOM 2>/dev/null | grep ".json" | sed 's/\.json//' | sort -u | rofi -dmenu -p "󰏘 Select Theme")
-
+# 1. Selection
+SELECTED=$(ls $THEME_DIR_SYSTEM $THEME_DIR_CUSTOM 2>/dev/null | grep ".json" | sed 's/\.json//' | sort -u | rofi -dmenu -p "󰏘 Theme")
 [ -z "$SELECTED" ] && exit 0
 
-# 2. Apply HyprPanel Theme
-if [ -f "$THEME_DIR_CUSTOM/$SELECTED.json" ]; then
-    hyprpanel useTheme "$THEME_DIR_CUSTOM/$SELECTED.json"
-else
-    hyprpanel useTheme "$THEME_DIR_SYSTEM/$SELECTED.json"
-fi
+# 2. Apply Panel Theme
+[ -f "$THEME_DIR_CUSTOM/$SELECTED.json" ] && hyprpanel useTheme "$THEME_DIR_CUSTOM/$SELECTED.json" || hyprpanel useTheme "$THEME_DIR_SYSTEM/$SELECTED.json"
 
 # 3. Find Wallpaper
 WP=$(find "$WALL_DIR" -maxdepth 1 -type f -iname "$SELECTED.*" | head -n 1)
 
-# 4. The Force-Apply logic
+# 4. Apply Wallpaper via setwall (to reuse the persistence logic)
 if [ -n "$WP" ]; then
-    # Kill any hung awww processes that might be fighting
-    pkill awww-daemon || true
-    awww-daemon &
-    sleep 0.8
-    
-    # Apply the image
-    awww img "$WP"
-    
-    # Force HyprPanel to register the path without its internal 'Apply' logic
+    ~/.local/bin/setwall "$WP"
     hyprpanel -p "$WP"
-
-    matugen image "$WP"
-    hyprctl reload
 else
     notify-send "Theme Switcher" "No wallpaper found for $SELECTED"
 fi
