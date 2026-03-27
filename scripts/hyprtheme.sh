@@ -23,13 +23,13 @@ WP=$(find "$WALL_DIR" -maxdepth 1 -type f -iname "$SELECTED.*" | head -n 1)
 
 # 4. The Force-Apply logic
 if [ -n "$WP" ]; then
-    # Kill any hung swww processes that might be fighting
-    pkill swww-daemon
-    swww-daemon &
-    sleep 0.5
+    # Kill any hung awww processes that might be fighting
+    pkill awww-daemon || true
+    awww-daemon &
+    sleep 0.8
     
     # Apply the image
-    swww img "$WP" --transition-type grow --transition-duration 1.0
+    awww img "$WP"
     
     # Force HyprPanel to register the path without its internal 'Apply' logic
     hyprpanel -p "$WP"
