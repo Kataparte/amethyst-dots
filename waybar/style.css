@@ -1,193 +1,104 @@
-@import "colors.css";
+@import url("/home/kataparte/.config/waybar/colors.css");
 
 * {
-    all: unset;
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
 }
 
 window#waybar {
-    /* Using the bar_bg from Matugen which has the 0.6 alpha transparency */
-    background: @bar_bg; 
-    border: 1px solid @bar_border;
-    border-radius: 16px;
-    margin: 10px;
+    background: transparent; 
 }
 
-/* Base Pill/Bubble Style */
-#custom-launcher, #workspaces, #cpu, #memory, #disk, #clock, #custom-weather, #pulseaudio, #network, #battery, #tray, #custom-notification, #custom-power, #custom-sunset {
-    background: @pill_bg;
-    color: @on_surface;
-    border-radius: 20px;
-    padding: 0 12px;
-    margin: 4px 3px;
-    border: 1px solid @bar_border;
-    text-shadow: 0px 0px 2px rgba(0,0,0,0.5);
-    transition: all 0.3s ease;
+/* The Combined Pill Container */
+#group-owl-pill {
+    background-color: #1e1e2e;
+    border-radius: 12px;
+    margin: 2px 3px 2px 10px;
+    padding: 0px 8px;
 }
 
-/* Hover Effects */
-#pulseaudio:hover, #network:hover, #clock:hover, #battery:hover, #tray:hover, #custom-notification:hover, #custom-power:hover, #custom-sunset:hover {
-    background: @primary;
-    color: @surface;
+/* The Arch Logo inside the pill */
+#custom-launcher {
+    color: @accent;
+    background-color: transparent; /* No longer its own button */
+    padding-right: 10px;
+    margin-right: 5px;
+    border-right: 1px solid rgba(255, 255, 255, 0.15); /* The "|" separator */
+    font-size: 16px;
 }
 
-/* Spacing and Alignment Fixes */
-#custom-launcher { 
-    margin-left: 15px; 
-    margin-right: 0;           /* Remove gap on the right */
-    border-right: none;        /* Remove the border between them */
-    border-radius: 20px 0 0 20px; /* Round ONLY the left side */
+/* Individual Pills for everything else */
+#window, #pulseaudio, #backlight, #battery, #clock, #tray {
+    background-color: #1e1e2e;
+    color: @accent;
+    padding: 0px 8px;   
+    border-radius: 12px; 
+    margin: 2px 3px;    
 }
 
-#custom-power { 
-    margin-right: 15px; 
-}
-
-/* 1. Tighten the container (the pill) */
+/* Workspaces (now transparent to show the owl-pill background) */
 #workspaces {
-    background: @pill_bg;
-    color: @on_surface;
-    border: 1px solid @bar_border;
-    transition: all 0.3s ease;
-    
-    margin: 4px 3px;
-    margin-left: 0;            /* Remove gap on the left */
-    padding: 0 6px;
-    
-    border-radius: 0 20px 20px 0; /* Round ONLY the right side */
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
 }
 
-/* 2. Tighten the diamonds (the buttons) */
 #workspaces button {
-    all: unset;
-    color: alpha(@primary, 0.3); 
-    background: transparent;
-    font-size: 24px;      
-    
-    /* REDUCE THIS: Change from 6px to 2px */
-    margin: 0 3px;       
-    
-    padding: 0;
-    transition: all 0.3s ease;
+    padding: 0 4px;     
+    color: #585b70;
 }
 
 #workspaces button.active {
-    color: @primary;
-    background: transparent;
-    text-shadow: 0 0 8px alpha(@primary, 0.6);
-    font-size: 28px; 
+    color: @accent;
 }
 
-/* Waybar Media Player */
-#group-media {
-    background: @pill_bg;
-    border: 1px solid @bar_border;
-    border-radius: 20px;
-    padding: 0 10px;
-    margin: 0 5px;
+/* Battery States */
+#battery.charging, #battery.plugged {
+    color: #a6e3a1;
 }
 
-#custom-playerctl-prev, #custom-playerctl-play, #custom-playerctl-next {
-    color: @primary;
-    padding: 0 5px;
-    font-size: 16px;
+#battery.critical:not(.charging) {
+    background-color: @critical;
+    color: #1e1e2e;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
-#custom-playerctl-title {
-    color: @on_surface;
-    font-weight: bold;
-    padding: 0 10px;
-    border-right: none; 
-    margin-right: 5px;
-}
-
-#custom-cava {
-    color: @primary;
-    font-family: "JetBrainsMono Nerd Font";
-    font-size: 16px;
-    min-width: 100px; /* Force it to be wide enough to see */
-    margin-left: 10px;
-    background: rgba(255, 255, 255, 0.1); /* Temporary: help us see the 'box' */
-}
-
-#custom-sunset {
-    color: @primary;
-    padding: 0 10px;
-    font-size: 18px;
-}
-
-/* Make it look like the middle of the pill */
-#custom-wallpaper {
-    background: @pill_bg;
-    color: @primary;
-    padding: 0 10px;
-    margin: 4px 0;      /* Remove side margins to touch the logo and workspaces */
-    border-top: 1px solid @bar_border;
-    border-bottom: 1px solid @bar_border;
-    border-left: none;  /* Remove borders between segments */
-    border-right: none;
-    border-radius: 0;   /* Square edges so it connects */
-    font-size: 18px;
-    transition: all 0.3s ease;
-}
-
-/* Update the Launcher so it only rounds the left side */
-#custom-launcher { 
-    margin-left: 15px; 
-    margin-right: 0; 
-    border-right: none;
-    border-radius: 20px 0 0 20px; 
-}
-
-/* This adds a tiny vertical line between the logo and wallpaper if you want one */
-#custom-wallpaper {
-    border-left: 1px solid rgba(255,255,255,0.1); 
-}
-
-#custom-wallpaper:hover {
-    background: @primary;
-    color: @surface;
-}
-
-/* This forces the background to be a solid color regardless of the bar's alpha */
-tooltip {
-    background-color: #1e1e2e;      /* Replace with your @bg-alt hex if different */
-    background-image: none;         /* Removes any inherited transparent gradients */
-    border: 1px solid @bar_border;
+#bluetooth {
+    background-color: #1e1e2e;
+    color: @accent; /* This uses your Matugen-generated colors! */
+    padding: 0px 10px;
     border-radius: 12px;
+    margin: 2px 3px;
 }
 
-tooltip label {
-    color: @on_surface;
-    padding: 8px;
-    background: transparent;
+#bluetooth.connected {
+    color: #a6e3a1; /* Changes to a nice green when connected */
 }
 
-#tray {
-    background: @pill_bg;
-    color: @on_surface;
-    border-radius: 20px;
-    padding: 0 12px;
-    margin: 4px 3px;
-    border: 1px solid @bar_border;
+#bluetooth.disabled {
+    background-color: #313244;
+    color: #45475a;
 }
 
-/* Styles the internal GTK menus used by the tray */
-menu {
-    background-color: #1e1e2e; /* Your solid hex */
-    border: 1px solid @bar_border;
-    border-radius: 8px;
-    padding: 4px;
+#custom-reboot,
+#custom-power {
+    background-color: #1e1e2e;
+    padding: 0px 10px;
+    border-radius: 12px;
+    margin: 2px 3px;
+    font-size: 14px;
 }
 
-menu item {
-    color: @on_surface;
-    padding: 4px 8px;
+#custom-reboot {
+    color: #caa4e8;
 }
 
-menu item:hover {
-    background: @primary;
-    color: @surface;
+#custom-power {
+    color: #f38ba8;
 }

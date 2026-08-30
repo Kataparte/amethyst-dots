@@ -50,6 +50,7 @@ element-text {
 }
 
 configuration {
+    icon-theme: "Papirus";
     modi: "drun,run";
     show-icons: true;
     terminal: "kitty";

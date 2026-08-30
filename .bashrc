@@ -19,6 +19,9 @@ alias meter='watch -n 1 "grep '\''^ *9:'\'' /proc/interrupts"'
 #alias meter='watch -n 1 "awk '\''/^ *9:/ {for(i=2;i<=NF-2;i++) s+=\$i; print \"Interrupt 9 Activity: \" s-p; p=s}'\'' <(cat /proc/interrupts; sleep 1; cat /proc/interrupts) | tail -n 1"'
 alias dots='~/.local/bin/dots'
 
+# Repo synce for NightOwl
+alias nightsync='~/.local/bin/nightsync'
+
 # Open Hyprland.conf
 alias conf='nano ~/.config/hypr/hyprland.conf'
 

@@ -1,170 +1,115 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 35,
-    "margin-top": 8,
-    "margin-left": 10,
-    "margin-right": 10,    
-    "margin-bottom": 12,  
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 26,
+    "spacing": 2,
+    "modules-left": ["group/owl-pill"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["bluetooth", "pulseaudio", "backlight", "battery", "clock", "tray", "custom/reboot", "custom/power"],    
 
-    "modules-left": [
-    "custom/launcher",
-    "custom/wallpaper", 
-    "hyprland/workspaces", 
-    "group/media" 
-    ],
-    "modules-center": ["custom/weather", "clock", "tray"],
-    "modules-right": [
-    "custom/sunset",
-    "pulseaudio",
-    "battery",
-    "custom/notification",
-    ],  
+    "group/owl-pill": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/launcher",
+            "hyprland/workspaces"
+        ]
+    },
 
     "hyprland/workspaces": {
         "format": "{icon}",
         "on-click": "activate",
         "format-icons": {
-            "active": "◆",
-            "default": "◆"
+            "1": "",
+            "2": "",
+            "3": "󰨞",
+            "4": "",
+            "5": "󰏆",
+            "urgent": "",
+            "active": "",
+            "default": ""
         },
         "sort-by-number": true
     },
 
     "custom/launcher": {
         "format": "󰣇",
-        "tooltip": false,
-        "on-click": "rofi -show drun -theme-str 'window {width: 30%;} listview {columns: 2;}'" 
+        "on-click": "wofi --show drun --prompt 'Search Apps...' --conf ~/.config/wofi/config --style ~/.config/waybar/style.css --conf ~/.config/wofi/config",
+        "tooltip": false
     },
+
+    "bluetooth": {
+        "format": " {status}",
+        "format-disabled": "󰂲", // an icon for 'off'
+        "format-connected": "󰂱 {device_alias}",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "blueman-manager",
+        "on-click-right": "rfkill toggle bluetooth"
+     },
 
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "format-muted": "󰝟 {volume}%",
-        "format-icons": ["󰕿", "󰖀", "󰕾"],
-        "on-click": "swaync-client -t -sw"
-    },    
-    
-    "bluetooth": {
-        "format": "",
-        "format-connected": " {device_alias}",
-        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
-        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-        "on-click": "rofi-bluetooth -theme ~/.config/rofi/selector.rasi" 
+        "format-muted": " ",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
     },
 
-    "custom/notification": {
-        "tooltip": false,
-        "format": "󰂚",
-        "on-click": "swaync-client -t -sw",
-        "escape": true
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
-
-    "custom/weather": {
-        "format": "{}",
-        "return-type": "json",
-        "exec": "~/.config/waybar/weather.sh",
-        "interval": 3600
-    },    
-
-    "clock": {
-        "format": "  {:%I:%M %p  |  󰃭  %a %d}",
-        "format-alt": "  {:%m/%d/%Y}",
-        "tooltip": false
-    },       
 
     "battery": {
-        "states": { "warning": 30, "critical": 15 },
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
         "format": "{icon} {capacity}%",
-        "format-charging": "󱐋 {capacity}%", // This appears when charging
-        "format-plugged": " {capacity}%",   // This appears when full but plugged in
-        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-        "on-click": "~/.config/waybar/power_menu.sh",
-        "tooltip": true
-    },    
-
-    "cpu": {
-        "format": "  {usage}%",
-        "interval": 2,
-        "tooltip": false
-    },
-    "memory": {
-        "format": "  {}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-discharging": "{icon} {capacity}%",
+        "format-icons": ["", "", "", "", ""],
         "interval": 5
     },
-    "disk": {
-        "format": "󰋊  {percentage_used}%",
-        "interval": 60
-    },
 
-    "group/media": {
-    "orientation": "horizontal",
-    "modules": [
-        "custom/playerctl-prev",
-        "custom/playerctl-play",
-        "custom/playerctl-next",
-        "custom/playerctl-title",
-        "custom/cava"
-        ]
-    },
-
-    "custom/playerctl-title": {
-        "format": "<span>{}</span>",
-        "return-type": "json",
-        "max-length": 25,
-        "exec": "playerctl -a metadata --format '{\"text\": \"{{title}}\", \"tooltip\": \"{{artist}} - {{title}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F"
-    },
-
-    "custom/playerctl-prev": {
-        "format": "󰒮",
-        "on-click": "playerctl previous",
-        "tooltip": false
-    },
-
-    "custom/playerctl-play": {
-        "format": "{icon}",
-        "return-type": "json",
-        "exec": "playerctl -a metadata --format '{\"alt\": \"{{status}}\"}' -F",
-        "format-icons": {
-            "Playing": "󰏤",
-            "Paused": "󰐊"
-        },
-        "on-click": "playerctl play-pause",
-        "tooltip": false
-    },
-
-    "custom/playerctl-next": {
-        "format": "󰒭",
-        "on-click": "playerctl next",
-        "tooltip": false
-    },
-
-    "custom/cava": {
-        "exec": "~/.local/bin/waybar-cava",
-        "format": "{}",
-        "tooltip": false
-    },
-
-    "custom/sunset": {
-        "interval": 2,
-        "exec": "pgrep -x hyprsunset > /dev/null && echo '󰖔' || echo '󰖙'",
-        "on-click": "pgrep -x hyprsunset > /dev/null && killall hyprsunset || hyprsunset -t 5000",
-        "tooltip": false
-    },
-    
-    "custom/wallpaper": {
-        "format": "󰏘",
-        "on-click": "wall-picker",
-        "tooltip": false
+    "clock": {
+        "format": "{:%I:%M %p}",
+        "format-alt": "{:%A, %B %d, %Y (%R)} 󰃭",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "on-scroll": 1,
+            "format": {
+                "months":   "<span color='#cba6f7'><b>{}</b></span>",
+                "days":      "<span color='#cdd6f4'><b>{}</b></span>",
+                "weekdays": "<span color='#89b4fa'><b>{}</b></span>",
+                "today":    "<span color='#f38ba8'><b><u>{}</u></b></span>"
+            }
+        }
     },
 
     "tray": {
         "icon-size": 16,
-        "spacing": 10,
-        "exclude": [
-            "nm-applet" 
-        ]
+        "spacing": 10
+    },
+
+    "custom/reboot": {
+        "format": "󰜉",
+        "tooltip-format": "Reboot System",
+        "on-click": "zenity --question --text='Reboot the system?' && reboot"
+    },
+
+    "custom/power": {
+        "format": "󰐥",
+        "tooltip-format": "Shutdown System",
+        "on-click": "zenity --question --text='Shutdown the system?' && poweroff"
     }
 }
