@@ -9,7 +9,7 @@
     "spacing": 2,
     "modules-left": ["group/owl-pill"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["bluetooth", "pulseaudio", "backlight", "battery", "clock", "tray", "custom/reboot", "custom/power"],    
+    "modules-right": ["bluetooth", "pulseaudio", "backlight", "battery", "clock", "tray"],    
 
     "group/owl-pill": {
         "orientation": "horizontal",
